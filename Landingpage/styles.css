@@ -33,7 +33,7 @@ body {
   z-index: 20;
   display: grid;
   place-items: center;
-  background: #000000;
+  background: #000000 url("/Landingpage/Assests/2.png") center / cover no-repeat;
   transition:
     opacity 700ms ease,
     visibility 700ms ease;
