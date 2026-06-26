@@ -1,9 +1,16 @@
 const loader = document.getElementById("loader");
 const loaderFrame = document.getElementById("loaderFrame");
+const loaderStartedAt = performance.now();
+const minimumLoaderDuration = 4200;
 
 const hideLoader = () => {
   if (!loader) return;
-  loader.classList.add("is-hidden");
+  const elapsed = performance.now() - loaderStartedAt;
+  const remaining = Math.max(0, minimumLoaderDuration - elapsed);
+
+  setTimeout(() => {
+    loader.classList.add("is-hidden");
+  }, remaining);
 };
 
 const padFrame = (frame) => String(frame).padStart(3, "0");
