@@ -8,52 +8,60 @@ const hideLoader = () => {
 
 const padFrame = (frame) => String(frame).padStart(3, "0");
 
+const wait = (duration) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, duration);
+  });
+
 if (loaderFrame) {
   const frameBase = loaderFrame.dataset.frameBase || "Lodingpageframes/ezgif-frame-";
   const frameCount = Number(loaderFrame.dataset.frameCount || 141);
   const frameExt = loaderFrame.dataset.frameExt || "jpg";
   const frameDuration = 1000 / 24;
-  const cache = new Map();
+  const imageCache = new Map();
 
   const frameSrc = (frame) => `${frameBase}${padFrame(frame)}.${frameExt}`;
 
-  const preloadFrame = (frame) => {
-    if (frame > frameCount || cache.has(frame)) return;
+  const loadFrame = (frame) => {
+    if (imageCache.has(frame)) return imageCache.get(frame);
 
-    const image = new Image();
-    image.src = frameSrc(frame);
-    cache.set(frame, image);
+    const promise = new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = reject;
+      image.src = frameSrc(frame);
+    });
+
+    imageCache.set(frame, promise);
+    return promise;
   };
 
   const preloadAhead = (frame) => {
-    for (let next = frame; next <= Math.min(frame + 24, frameCount); next += 1) {
-      preloadFrame(next);
+    for (let next = frame; next <= Math.min(frame + 18, frameCount); next += 1) {
+      loadFrame(next).catch(() => {});
     }
   };
 
-  let currentFrame = 1;
-  let lastFrameTime = performance.now();
+  const playFrameSequence = async () => {
+    try {
+      await loadFrame(1);
+      loaderFrame.src = frameSrc(1);
 
-  const playFrames = (time) => {
-    if (time - lastFrameTime >= frameDuration) {
-      currentFrame += 1;
-      lastFrameTime = time;
-
-      if (currentFrame > frameCount) {
-        hideLoader();
-        return;
+      for (let frame = 2; frame <= frameCount; frame += 1) {
+        preloadAhead(frame);
+        await loadFrame(frame);
+        loaderFrame.src = frameSrc(frame);
+        await wait(frameDuration);
       }
-
-      loaderFrame.src = frameSrc(currentFrame);
-      preloadAhead(currentFrame + 1);
+    } catch (error) {
+      // Keep the first frame/poster visible briefly if a later frame fails.
+      await wait(1800);
+    } finally {
+      hideLoader();
     }
-
-    requestAnimationFrame(playFrames);
   };
 
-  loaderFrame.addEventListener("error", hideLoader, { once: true });
-  preloadAhead(1);
-  requestAnimationFrame(playFrames);
+  playFrameSequence();
 } else {
   hideLoader();
 }
@@ -62,4 +70,4 @@ setTimeout(() => {
   if (loader && !loader.classList.contains("is-hidden")) {
     hideLoader();
   }
-}, 12000);
+}, 15000);
