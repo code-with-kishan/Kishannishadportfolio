@@ -2,9 +2,11 @@ const loader = document.getElementById("loader");
 const loaderFrame = document.getElementById("loaderFrame");
 const loaderStartedAt = performance.now();
 const minimumLoaderDuration = 4200;
+let loaderHidden = false;
 
 const hideLoader = () => {
-  if (!loader) return;
+  if (!loader || loaderHidden) return;
+  loaderHidden = true;
   const elapsed = performance.now() - loaderStartedAt;
   const remaining = Math.max(0, minimumLoaderDuration - elapsed);
 
@@ -50,22 +52,25 @@ if (loaderFrame) {
   };
 
   const playFrameSequence = async () => {
-    try {
-      await loadFrame(1);
-      loaderFrame.src = frameSrc(1);
+    await loadFrame(1).catch(() => null);
 
-      for (let frame = 2; frame <= frameCount; frame += 1) {
-        preloadAhead(frame);
-        await loadFrame(frame);
-        loaderFrame.src = frameSrc(frame);
-        await wait(frameDuration);
-      }
-    } catch (error) {
-      // Keep the first frame/poster visible briefly if a later frame fails.
-      await wait(1800);
-    } finally {
-      hideLoader();
+    if (loaderFrame.naturalWidth > 0) {
+      loaderFrame.src = frameSrc(1);
     }
+
+    for (let frame = 2; frame <= frameCount; frame += 1) {
+      preloadAhead(frame);
+
+      const image = await loadFrame(frame).catch(() => null);
+
+      if (image) {
+        loaderFrame.src = frameSrc(frame);
+      }
+
+      await wait(frameDuration);
+    }
+
+    hideLoader();
   };
 
   playFrameSequence();
@@ -77,4 +82,4 @@ setTimeout(() => {
   if (loader && !loader.classList.contains("is-hidden")) {
     hideLoader();
   }
-}, 15000);
+}, 45000);
