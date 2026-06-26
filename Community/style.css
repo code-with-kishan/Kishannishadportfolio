@@ -82,12 +82,17 @@ header .author img{
         var(--url) var(--left),
         url(images/mockup.png) 0 0;
     background-size: auto 100%;
+    background-repeat: no-repeat;
     width: 280px;
     aspect-ratio: 2 / 4;
     background-blend-mode: multiply;
     transition: 0.8s;
+    -webkit-mask-image: url(images/mockup.png);
+    -webkit-mask-size: auto 100%;
+    -webkit-mask-repeat: no-repeat;
     mask-image: url(images/mockup.png);
     mask-size: auto 100%;
+    mask-repeat: no-repeat;
 }
 .soda:nth-child(2){
     opacity: 0;

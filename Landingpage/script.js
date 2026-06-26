@@ -1,49 +1,59 @@
 const loader = document.getElementById("loader");
-const loaderVideo = document.getElementById("loaderVideo");
+const loaderFrame = document.getElementById("loaderFrame");
 
 const hideLoader = () => {
   if (!loader) return;
   loader.classList.add("is-hidden");
 };
 
-if (loaderVideo) {
-  loaderVideo.muted = true;
-  loaderVideo.defaultMuted = true;
-  loaderVideo.playsInline = true;
-  loaderVideo.setAttribute("muted", "");
-  loaderVideo.setAttribute("playsinline", "");
-  loaderVideo.setAttribute("webkit-playsinline", "");
+const padFrame = (frame) => String(frame).padStart(3, "0");
 
-  const tryPlayLoaderVideo = () => {
-    const playAttempt = loaderVideo.play();
+if (loaderFrame) {
+  const frameBase = loaderFrame.dataset.frameBase || "Lodingpageframes/ezgif-frame-";
+  const frameCount = Number(loaderFrame.dataset.frameCount || 141);
+  const frameExt = loaderFrame.dataset.frameExt || "jpg";
+  const frameDuration = 1000 / 24;
+  const cache = new Map();
 
-    if (playAttempt) {
-      playAttempt.catch(() => {
-        // Keep the loader visible with the poster image if autoplay is blocked.
-      });
+  const frameSrc = (frame) => `${frameBase}${padFrame(frame)}.${frameExt}`;
+
+  const preloadFrame = (frame) => {
+    if (frame > frameCount || cache.has(frame)) return;
+
+    const image = new Image();
+    image.src = frameSrc(frame);
+    cache.set(frame, image);
+  };
+
+  const preloadAhead = (frame) => {
+    for (let next = frame; next <= Math.min(frame + 24, frameCount); next += 1) {
+      preloadFrame(next);
     }
   };
 
-  const startLoaderVideo = () => {
-    loaderVideo.load();
+  let currentFrame = 1;
+  let lastFrameTime = performance.now();
 
-    if (loaderVideo.readyState >= 2) {
-      tryPlayLoaderVideo();
-      return;
+  const playFrames = (time) => {
+    if (time - lastFrameTime >= frameDuration) {
+      currentFrame += 1;
+      lastFrameTime = time;
+
+      if (currentFrame > frameCount) {
+        hideLoader();
+        return;
+      }
+
+      loaderFrame.src = frameSrc(currentFrame);
+      preloadAhead(currentFrame + 1);
     }
 
-    loaderVideo.addEventListener("loadeddata", tryPlayLoaderVideo, { once: true });
-    loaderVideo.addEventListener("canplay", tryPlayLoaderVideo, { once: true });
+    requestAnimationFrame(playFrames);
   };
 
-  loaderVideo.addEventListener("ended", hideLoader, { once: true });
-  loaderVideo.addEventListener("error", hideLoader, { once: true });
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", startLoaderVideo, { once: true });
-  } else {
-    startLoaderVideo();
-  }
+  loaderFrame.addEventListener("error", hideLoader, { once: true });
+  preloadAhead(1);
+  requestAnimationFrame(playFrames);
 } else {
   hideLoader();
 }
@@ -52,4 +62,4 @@ setTimeout(() => {
   if (loader && !loader.classList.contains("is-hidden")) {
     hideLoader();
   }
-}, 10000);
+}, 12000);
