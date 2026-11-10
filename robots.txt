@@ -1,2 +1,12 @@
 User-agent: *
 Allow: /
+
+# Googlebot & Search Engine Indexing Directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Sitemap
+Sitemap: https://kishannishad.vercel.app/sitemap.xml
