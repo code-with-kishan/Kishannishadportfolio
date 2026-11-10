@@ -35,7 +35,7 @@
       content="Official portfolio of Kishan Nishad — Founder &amp; CEO @Devengers &amp; @WebHurry, 11x Hackathon Winner, Google Student Ambassador, Global Rank #1 @GCV S14 &amp; S15, Harvard CS50x."
     />
     <meta property="og:url" content="https://kishannishad.vercel.app/" />
-    <meta property="og:image" content="https://kishannishad.vercel.app/Landingpage/Assests/kishan-portrait.jpg" />
+    <meta property="og:image" content="https://kishannishad.vercel.app/Landingpage/Assests/kishan-portrait.webp" />
     <meta property="og:image:alt" content="Kishan Nishad - Founder &amp; CEO @Devengers &amp; @WebHurry" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
@@ -50,7 +50,7 @@
       name="twitter:description"
       content="Official portfolio of Kishan Nishad — Founder &amp; CEO of DEVENGERS &amp; WebHurry, 11x Hackathon Winner, Google Student Ambassador, and Harvard CS50x."
     />
-    <meta name="twitter:image" content="https://kishannishad.vercel.app/Landingpage/Assests/kishan-portrait.jpg" />
+    <meta name="twitter:image" content="https://kishannishad.vercel.app/Landingpage/Assests/kishan-portrait.webp" />
     <meta name="twitter:image:alt" content="Kishan Nishad Portrait" />
 
     <!-- Favicon & Mobile Touch Icons (Kishan Nishad Portrait) -->
@@ -60,7 +60,8 @@
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png" />
     <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="preload" as="image" href="Landingpage/Assests/2.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="Landingpage/Assests/2.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="Landingpage/Assests/kishan-portrait.webp" type="image/webp" fetchpriority="high" />
 
     <!-- Google & CDN Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -91,7 +92,7 @@
             "familyName": "Nishad",
             "alternateName": ["devkishannishad", "Code with Kishan", "Kishan Nishad DEVENGERS", "Kishan Nishad WebHurry"],
             "url": "https://kishannishad.vercel.app/",
-            "image": "https://kishannishad.vercel.app/Landingpage/Assests/kishan-portrait.jpg",
+            "image": "https://kishannishad.vercel.app/Landingpage/Assests/kishan-portrait.webp",
             "jobTitle": "Founder & CEO, Full-Stack & AI Engineer",
             "description": "Founder & CEO of DEVENGERS (10K+ members) and WebHurry. 11x Hackathon Winner, Google Student Ambassador, Global Rank #1 @GCV S14 & S15, and Harvard CS50x 100% graduate.",
             "email": "mailto:knishad0004@gmail.com",
@@ -190,7 +191,7 @@
             },
             "primaryImageOfPage": {
               "@type": "ImageObject",
-              "url": "https://kishannishad.vercel.app/Landingpage/Assests/kishan-portrait.jpg"
+              "url": "https://kishannishad.vercel.app/Landingpage/Assests/kishan-portrait.webp"
             },
             "inLanguage": "en-US"
           }
@@ -231,29 +232,7 @@ body {
   color: #ffffff;
 }
 
-.loader {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
-  background: #000000 url("Landingpage/Assests/2.png") center / cover no-repeat;
-  transition:
-    opacity 450ms ease,
-    visibility 450ms ease;
-}
-
-.loader.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.loader-frame {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* Frame loader styles removed for instant page rendering */
 
 .landing {
   position: relative;
@@ -261,7 +240,7 @@ body {
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(5, 7, 12, 0.72) 0%, rgba(5, 7, 12, 0.45) 42%, rgba(0, 0, 0, 0.05) 85%),
-    url("Landingpage/Assests/2.png") center / cover no-repeat;
+    url("Landingpage/Assests/2.webp") center / cover no-repeat;
 }
 
 .site-section {
@@ -1808,7 +1787,7 @@ body {
   height: 90%;
   transform: translateX(-50%);
   content: '';
-  background-image: url('certifications/images/bg.png');
+  background-image: url('certifications/images/bg.webp');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: top center;
@@ -1915,7 +1894,7 @@ body {
 }
 
 #certifications .cert-content .cert-model {
-  background-image: url('certifications/images/model.png');
+  background-image: url('certifications/images/model.webp');
   width: 100%;
   height: 75vh;
   position: absolute;
@@ -1984,7 +1963,7 @@ body {
     repeating-linear-gradient(to right, transparent 0 150px, #0001 150px 151px),
     repeating-linear-gradient(to bottom, transparent 0 150px, #0001 150px 151px),
     linear-gradient(to right, rgba(205, 205, 205, 0.8), rgba(205, 205, 205, 0.8)),
-    url('Community/images/bg.jpg');
+    url('Community/images/bg.webp');
   font-family: 'Poppins', sans-serif;
   color: #1E1E1E;
   overflow: hidden;
@@ -2095,8 +2074,8 @@ body {
   aspect-ratio: 2 / 4;
   --left: 0px;
   background-image:
-    url('Community/images/bg.png'),
-    url('Community/images/mockup.png');
+    url('Community/images/bg.webp'),
+    url('Community/images/mockup.webp');
   background-position:
     var(--left) 0,
     0 0;
@@ -2108,10 +2087,10 @@ body {
     no-repeat;
   background-blend-mode: multiply;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  -webkit-mask-image: url('Community/images/mockup.png');
+  -webkit-mask-image: url('Community/images/mockup.webp');
   -webkit-mask-size: auto 100%;
   -webkit-mask-repeat: no-repeat;
-  mask-image: url('Community/images/mockup.png');
+  mask-image: url('Community/images/mockup.webp');
   mask-size: auto 100%;
   mask-repeat: no-repeat;
   filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.4));
@@ -2389,7 +2368,7 @@ body {
   height: 70%;
   left: 50%;
   transform: translateX(-50%);
-  background-image: url('Blogs/img/model.png');
+  background-image: url('Blogs/img/model.webp');
   background-size: cover;
   background-position: top;
   pointer-events: none;
@@ -4564,41 +4543,25 @@ html {
   }
 }
 
+
+/* Modern Web Guidance: Defer rendering calculations for off-screen sections */
+#journey,
+#skills,
+#projects,
+#experience,
+#achievements,
+#certifications,
+#community,
+#blog,
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 850px;
+}
+
 </style>
     </head>
   <body>
-        <!-- 1. Frame Loader Sequence -->
-    <div class="loader" id="loader" aria-hidden="true">
-      <img
-        class="loader-frame"
-        id="loaderFrame"
-        src="Lodingpageframes/ezgif-frame-001.jpg"
-        data-frame-base="Lodingpageframes/ezgif-frame-"
-        data-frame-count="141"
-        data-frame-ext="jpg"
-        loading="eager"
-        decoding="sync"
-        fetchpriority="high"
-        alt=""
-      />
-    </div>
-    <script>
-      (function() {
-        try {
-          var h = window.location.hash;
-          var s = window.location.search;
-          var seen = sessionStorage.getItem('portfolio_intro_seen');
-          if (h || s.indexOf('skipLoader') !== -1 || seen === '1') {
-            var el = document.getElementById('loader');
-            if (el) {
-              el.style.display = 'none';
-              el.classList.add('is-hidden');
-              el.style.pointerEvents = 'none';
-            }
-          }
-        } catch(e) {}
-      })();
-    </script>
+        <!-- Instant Startup: Loader bypassed for max speed -->
 
     <!-- 2. Sticky Glassmorphism Navigation -->
     <nav class="navbar" aria-label="Primary navigation">
@@ -4634,7 +4597,7 @@ html {
         <div class="about-slider">
           <div class="about-list">
             <div class="about-item active">
-              <img src="About/image/img1.png" alt="Kishan Nishad profile" />
+              <img src="About/image/img1.webp" alt="Kishan Nishad profile" loading="lazy" decoding="async">
               <div class="about-content">
                 <p>profile</p>
                 <h2>About Me</h2>
@@ -4645,7 +4608,7 @@ html {
               </div>
             </div>
             <div class="about-item">
-              <img src="About/image/img2.jpg" alt="Education and learning path" />
+              <img src="About/image/img2.webp" alt="Education and learning path" loading="lazy" decoding="async">
               <div class="about-content">
                 <p>education</p>
                 <h2>Learning Path</h2>
@@ -4656,7 +4619,7 @@ html {
               </div>
             </div>
             <div class="about-item">
-              <img src="About/image/img3.jpg" alt="Tech stack and skills" />
+              <img src="About/image/img3.webp" alt="Tech stack and skills" loading="lazy" decoding="async">
               <div class="about-content">
                 <p>skills</p>
                 <h2>Tech Stack</h2>
@@ -4667,7 +4630,7 @@ html {
               </div>
             </div>
             <div class="about-item">
-              <img src="About/image/img4.jpg" alt="Community leadership" />
+              <img src="About/image/img4.webp" alt="Community leadership" loading="lazy" decoding="async">
               <div class="about-content">
                 <p>leadership</p>
                 <h2>Community Builder</h2>
@@ -4678,7 +4641,7 @@ html {
               </div>
             </div>
             <div class="about-item">
-              <img src="About/image/img5.jpg" alt="Contact Kishan Nishad" />
+              <img src="About/image/img5.webp" alt="Contact Kishan Nishad" loading="lazy" decoding="async">
               <div class="about-content">
                 <p>contact</p>
                 <h2>Let's Build</h2>
@@ -4696,23 +4659,23 @@ html {
 
           <div class="about-thumbnail">
             <div class="about-thumb-item active">
-              <img src="About/image/img1.png" alt="About Me thumbnail" />
+              <img src="About/image/img1.webp" alt="About Me thumbnail" loading="lazy" decoding="async">
               <div class="about-thumb-content">About Me</div>
             </div>
             <div class="about-thumb-item">
-              <img src="About/image/img2.jpg" alt="Education thumbnail" />
+              <img src="About/image/img2.webp" alt="Education thumbnail" loading="lazy" decoding="async">
               <div class="about-thumb-content">Education</div>
             </div>
             <div class="about-thumb-item">
-              <img src="About/image/img3.jpg" alt="Skills thumbnail" />
+              <img src="About/image/img3.webp" alt="Skills thumbnail" loading="lazy" decoding="async">
               <div class="about-thumb-content">Skills</div>
             </div>
             <div class="about-thumb-item">
-              <img src="About/image/img4.jpg" alt="Leadership thumbnail" />
+              <img src="About/image/img4.webp" alt="Leadership thumbnail" loading="lazy" decoding="async">
               <div class="about-thumb-content">Leadership</div>
             </div>
             <div class="about-thumb-item">
-              <img src="About/image/img5.jpg" alt="Contact thumbnail" />
+              <img src="About/image/img5.webp" alt="Contact thumbnail" loading="lazy" decoding="async">
               <div class="about-thumb-content">Contact</div>
             </div>
           </div>
@@ -4745,7 +4708,7 @@ html {
             <!-- Left: Profile Showcase Card -->
             <aside class="profile-card">
               <div class="avatar-wrapper">
-                <img src="Landingpage/Assests/kishan-portrait.jpg" alt="Kishan Nishad Portrait" />
+                <img src="Landingpage/Assests/kishan-portrait.webp" alt="Kishan Nishad Portrait" loading="lazy" decoding="async">
                 <div class="avatar-badge" title="Google Student Ambassador">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
@@ -5018,7 +4981,7 @@ html {
           </div>
           <figure class="skills-card">
             <img
-              src="Landingpage/Assests/all-tech-stack.png"
+              src="Landingpage/Assests/all-tech-stack.webp"
               alt="Kishan Nishad tech stack icons"
               loading="lazy"
               width="1000"
@@ -5035,22 +4998,22 @@ html {
 
           <div class="proj-images">
             <div class="proj-img-item" style="--i: 1">
-              <img src="Projects/1.png" alt="SUVIDHA Project" />
+              <img src="Projects/1.webp" alt="SUVIDHA Project" loading="lazy" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 2">
-              <img src="Projects/2.png" alt="AI Money Mentor Project" />
+              <img src="Projects/2.webp" alt="AI Money Mentor Project" loading="lazy" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 3">
-              <img src="Projects/3.png" alt="AI StudyBuddy Project" />
+              <img src="Projects/3.webp" alt="AI StudyBuddy Project" loading="lazy" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 4">
-              <img src="Projects/4.png" alt="LunarTrace Project" />
+              <img src="Projects/4.webp" alt="LunarTrace Project" loading="lazy" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 5">
-              <img src="Projects/5.png" alt="FraudGenome Project" />
+              <img src="Projects/5.webp" alt="FraudGenome Project" loading="lazy" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 6">
-              <img src="Projects/6.png" alt="PromptShield Project" />
+              <img src="Projects/6.webp" alt="PromptShield Project" loading="lazy" decoding="async">
             </div>
           </div>
 
@@ -5134,13 +5097,13 @@ html {
         <div class="exp-container">
           <div class="exp-effect">
             <div class="exp-bird">
-              <img src="Experience/bird1.gif" alt="Animated bird" />
+              <img src="Experience/bird1.gif" alt="Animated bird" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="exp-list">
             <!-- 0. Devengers -->
             <div class="exp-item" id="exp_item_0">
-              <img src="Experience/img2.jpg" alt="DEVENGERS Tech Community" />
+              <img src="Experience/img2.webp" alt="DEVENGERS Tech Community" loading="lazy" decoding="async">
               <div class="exp-content">
                 <h2>Founder &amp; CEO @Devengers</h2>
                 <div class="exp-content1">
@@ -5153,7 +5116,7 @@ html {
 
             <!-- 1. WebHurry -->
             <div class="exp-item" id="exp_item_1">
-              <img src="Experience/img1.jpg" alt="WebHurry" />
+              <img src="Experience/img1.webp" alt="WebHurry" loading="lazy" decoding="async">
               <div class="exp-content">
                 <h2>Founder &amp; CEO @WebHurry</h2>
                 <div class="exp-content1">
@@ -5166,7 +5129,7 @@ html {
 
             <!-- 2. Google Student Ambassador -->
             <div class="exp-item" id="exp_item_2">
-              <img src="Experience/img1.jpeg" alt="Google Student Ambassador" />
+              <img src="Experience/img1.webp" alt="Google Student Ambassador" loading="lazy" decoding="async">
               <div class="exp-content">
                 <h2>Google Student Ambassador</h2>
                 <div class="exp-content1">
@@ -5179,7 +5142,7 @@ html {
 
             <!-- 3. E-Cell, IIT Bombay -->
             <div class="exp-item" id="exp_item_3">
-              <img src="Experience/img3.jpg" alt="E-Cell IIT Bombay" />
+              <img src="Experience/img3.webp" alt="E-Cell IIT Bombay" loading="lazy" decoding="async">
               <div class="exp-content">
                 <h2>Campus Ambassador @ E-Cell IIT Bombay</h2>
                 <div class="exp-content1">
@@ -5192,7 +5155,7 @@ html {
 
             <!-- 4. GS Labs / GSX Mathura Chapter -->
             <div class="exp-item" id="exp_item_4">
-              <img src="Experience/img2.jpg" alt="GirlScript GSX Mathura" />
+              <img src="Experience/img2.webp" alt="GirlScript GSX Mathura" loading="lazy" decoding="async">
               <div class="exp-content">
                 <h2>Chapter Lead @ GS Labs (GirlScript)</h2>
                 <div class="exp-content1">
@@ -5205,7 +5168,7 @@ html {
 
             <!-- 5. GeeksforGeeks Campus Mantri -->
             <div class="exp-item" id="exp_item_5">
-              <img src="Experience/img1.jpeg" alt="GeeksforGeeks Campus Mantri" />
+              <img src="Experience/img1.webp" alt="GeeksforGeeks Campus Mantri" loading="lazy" decoding="async">
               <div class="exp-content">
                 <h2>Campus Mantri @ GeeksforGeeks</h2>
                 <div class="exp-content1">
@@ -5218,7 +5181,7 @@ html {
 
             <!-- 6. IBM AI Intern -->
             <div class="exp-item" id="exp_item_6">
-              <img src="Experience/img3.jpg" alt="IBM AI Intern" />
+              <img src="Experience/img3.webp" alt="IBM AI Intern" loading="lazy" decoding="async">
               <div class="exp-content">
                 <h2>AI &amp; Machine Learning Intern @ IBM</h2>
                 <div class="exp-content1">
@@ -5238,7 +5201,7 @@ html {
         <div class="ach-carousel">
           <div class="ach-list">
             <div class="ach-item">
-              <img src="Acheivements/images/img1.png" alt="Certifications Achievement" />
+              <img src="Acheivements/images/img1.webp" alt="Certifications Achievement" loading="lazy" decoding="async">
               <div class="ach-introduce">
                 <div class="ach-title">CERTIFICATIONS</div>
                 <div class="ach-topic">Continuous Learning</div>
@@ -5271,7 +5234,7 @@ html {
             </div>
 
             <div class="ach-item">
-              <img src="Acheivements/images/img2.png" alt="Community Leadership" />
+              <img src="Acheivements/images/img2.webp" alt="Community Leadership" loading="lazy" decoding="async">
               <div class="ach-introduce">
                 <div class="ach-title">COMMUNITY LEADERSHIP</div>
                 <div class="ach-topic">Community Impact</div>
@@ -5303,7 +5266,7 @@ html {
             </div>
 
             <div class="ach-item">
-              <img src="Acheivements/images/img3.png" alt="Competitive Programming" />
+              <img src="Acheivements/images/img3.webp" alt="Competitive Programming" loading="lazy" decoding="async">
               <div class="ach-introduce">
                 <div class="ach-title">COMPETITIVE PROGRAMMING</div>
                 <div class="ach-topic">DSA Problem Solving</div>
@@ -5335,7 +5298,7 @@ html {
             </div>
 
             <div class="ach-item">
-              <img src="Acheivements/images/img4.png" alt="Hackathons Excellence" />
+              <img src="Acheivements/images/img4.webp" alt="Hackathons Excellence" loading="lazy" decoding="async">
               <div class="ach-introduce">
                 <div class="ach-title">HACKATHONS</div>
                 <div class="ach-topic">Hackathon Excellence</div>
@@ -5367,7 +5330,7 @@ html {
             </div>
 
             <div class="ach-item">
-              <img src="Acheivements/images/img5.png" alt="Global Rank 4" />
+              <img src="Acheivements/images/img5.webp" alt="Global Rank 4" loading="lazy" decoding="async">
               <div class="ach-introduce">
                 <div class="ach-title">GLOBAL RANK #4</div>
                 <div class="ach-topic">Elite Competitive Rank</div>
@@ -5398,7 +5361,7 @@ html {
             </div>
 
             <div class="ach-item">
-              <img src="Acheivements/images/img6.png" alt="Global Rank 1" />
+              <img src="Acheivements/images/img6.webp" alt="Global Rank 1" loading="lazy" decoding="async">
               <div class="ach-introduce">
                 <div class="ach-title">GLOBAL RANK #1</div>
                 <div class="ach-topic">Global Winner</div>
@@ -5441,34 +5404,34 @@ html {
         <div class="cert-banner">
           <div class="cert-slider" style="--quantity: 10">
             <div class="cert-item" style="--position: 1">
-              <img src="certifications/images/dragon_1.png" alt="Certificate 1" />
+              <img src="certifications/images/dragon_1.webp" alt="Certificate 1" loading="lazy" decoding="async">
             </div>
             <div class="cert-item" style="--position: 2">
-              <img src="certifications/images/dragon_2.png" alt="Certificate 2" />
+              <img src="certifications/images/dragon_2.webp" alt="Certificate 2" loading="lazy" decoding="async">
             </div>
             <div class="cert-item" style="--position: 3">
-              <img src="certifications/images/dragon_3.png" alt="Certificate 3" />
+              <img src="certifications/images/dragon_3.webp" alt="Certificate 3" loading="lazy" decoding="async">
             </div>
             <div class="cert-item" style="--position: 4">
-              <img src="certifications/images/dragon_4.png" alt="Certificate 4" />
+              <img src="certifications/images/dragon_4.webp" alt="Certificate 4" loading="lazy" decoding="async">
             </div>
             <div class="cert-item" style="--position: 5">
-              <img src="certifications/images/dragon_5.png" alt="Certificate 5" />
+              <img src="certifications/images/dragon_5.webp" alt="Certificate 5" loading="lazy" decoding="async">
             </div>
             <div class="cert-item" style="--position: 6">
-              <img src="certifications/images/dragon_6.png" alt="Certificate 6" />
+              <img src="certifications/images/dragon_6.webp" alt="Certificate 6" loading="lazy" decoding="async">
             </div>
             <div class="cert-item" style="--position: 7">
-              <img src="certifications/images/dragon_7.png" alt="Certificate 7" />
+              <img src="certifications/images/dragon_7.webp" alt="Certificate 7" loading="lazy" decoding="async">
             </div>
             <div class="cert-item" style="--position: 8">
-              <img src="certifications/images/dragon_8.png" alt="Certificate 8" />
+              <img src="certifications/images/dragon_8.webp" alt="Certificate 8" loading="lazy" decoding="async">
             </div>
             <div class="cert-item" style="--position: 9">
-              <img src="certifications/images/dragon_9.png" alt="Certificate 9" />
+              <img src="certifications/images/dragon_9.webp" alt="Certificate 9" loading="lazy" decoding="async">
             </div>
             <div class="cert-item" style="--position: 10">
-              <img src="certifications/images/dragon_10.png" alt="Certificate 10" />
+              <img src="certifications/images/dragon_10.webp" alt="Certificate 10" loading="lazy" decoding="async">
             </div>
           </div>
 
@@ -5492,7 +5455,7 @@ html {
         <div class="comm-header">
           <div class="comm-left">
             <h1>DEVENGERS</h1>
-            <img src="Community/images/2.png" alt="DEVENGERS waves graphic" class="comm-waves" />
+            <img src="Community/images/2.webp" alt="DEVENGERS waves graphic" class="comm-waves" loading="lazy" decoding="async">
             <div class="comm-author">
               <h3>KISHAN</h3>
               <div class="comm-author-row">
@@ -5503,7 +5466,7 @@ html {
                 <p>Community</p>
                 <p>10K+ Members</p>
               </div>
-              <img src="Community/images/code.png" alt="DEVENGERS code badge" class="comm-code" />
+              <img src="Community/images/code.png" alt="DEVENGERS code badge" class="comm-code" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -5514,9 +5477,9 @@ html {
           </div>
 
           <div class="comm-rock">
-            <img src="Community/images/rock1.png" alt="Rock pedestal" />
-            <img src="Community/images/rock2.png" alt="Left rock element" />
-            <img src="Community/images/rock3.png" alt="Right rock element" />
+            <img src="Community/images/rock1.webp" alt="Rock pedestal" loading="lazy" decoding="async">
+            <img src="Community/images/rock2.webp" alt="Left rock element" loading="lazy" decoding="async">
+            <img src="Community/images/rock3.webp" alt="Right rock element" loading="lazy" decoding="async">
           </div>
         </div>
       </section>
@@ -5526,7 +5489,7 @@ html {
         <div class="blog-slider">
           <div class="blog-list">
             <div class="blog-item active">
-              <div class="blog-image" style="--url: url('Blogs/img/1.jpg')"></div>
+              <div class="blog-image" style="--url: url('Blogs/img/1.webp')"></div>
               <div class="blog-content">
                 <h2>BLOG!</h2>
                 <p>
@@ -5540,7 +5503,7 @@ html {
               </div>
             </div>
             <div class="blog-item">
-              <div class="blog-image" style="--url: url('Blogs/img/2.jpg')"></div>
+              <div class="blog-image" style="--url: url('Blogs/img/2.webp')"></div>
               <div class="blog-content">
                 <h2>BLOG 2</h2>
                 <p>
@@ -5554,7 +5517,7 @@ html {
               </div>
             </div>
             <div class="blog-item">
-              <div class="blog-image" style="--url: url('Blogs/img/3.jpg')"></div>
+              <div class="blog-image" style="--url: url('Blogs/img/3.webp')"></div>
               <div class="blog-content">
                 <h2>BLOG 3</h2>
                 <p>
@@ -5848,7 +5811,7 @@ html {
         <!-- Dangling Spider-Man mascot launcher -->
         <button class="spidey-character" id="spideyToggle" aria-label="Open AI Spidey Chatbot" aria-expanded="false" title="Chat with Spidey about Kishan!">
           <div class="spidey-speech" id="spideySpeech">👋 Ask Spidey about Kishan!</div>
-          <img src="Landingpage/Assests/spiderman-chat.png" alt="Spider-Man Offline Assistant" class="spidey-img" />
+          <img src="Landingpage/Assests/spiderman-chat.webp" alt="Spider-Man Offline Assistant" class="spidey-img" loading="lazy" decoding="async">
           <span class="spidey-status-badge"><span class="spidey-dot"></span>Offline AI Ready</span>
         </button>
       </div>
@@ -5859,7 +5822,7 @@ html {
         <div class="spidey-header">
           <div class="spidey-header-info">
             <div class="spidey-avatar-wrap">
-              <img src="Landingpage/Assests/spiderman-chat.png" alt="Spidey" class="spidey-header-avatar" />
+              <img src="Landingpage/Assests/spiderman-chat.webp" alt="Spidey" class="spidey-header-avatar" loading="lazy" decoding="async">
               <span class="spidey-online-dot"></span>
             </div>
             <div>
@@ -5936,121 +5899,32 @@ html {
 
 const initPortfolio = () => {
   // ------------------------------------------------------------------------
-  // 1. FAST LOADER SEQUENCE (NON-BLOCKING)
-  // ------------------------------------------------------------------------
-  const loader = document.getElementById("loader");
-  const loaderFrame = document.getElementById("loaderFrame");
-  let loaderHidden = false;
-  let isSequenceCancelled = false;
-
-  const alreadySeen = (() => {
-    try {
-      if (window.location.hash || window.location.search.includes("skipLoader")) return true;
-      return sessionStorage.getItem("portfolio_intro_seen") === "1";
-    } catch (_) {
-      return false;
-    }
-  })();
-
-  const hideLoader = (immediate = false) => {
-    if (!loader || loaderHidden) return;
-    loaderHidden = true;
-    isSequenceCancelled = true;
-
-    try {
-      sessionStorage.setItem("portfolio_intro_seen", "1");
-    } catch (_) {}
-
-    loader.classList.add("is-hidden");
-    loader.style.pointerEvents = "none";
-
-    if (immediate || alreadySeen) {
-      loader.style.display = "none";
-      if (loaderFrame) loaderFrame.removeAttribute("src");
-      return;
-    }
-
-    setTimeout(() => {
-      loader.style.display = "none";
-      if (loaderFrame) loaderFrame.removeAttribute("src");
-    }, 300);
-  };
-
-  // Instant dismiss on any user interaction
-  const dismissEarly = () => {
-    if (!loaderHidden) hideLoader(true);
-  };
-  window.addEventListener("click", dismissEarly, { once: true, passive: true });
-  window.addEventListener("keydown", dismissEarly, { once: true, passive: true });
-  window.addEventListener("wheel", dismissEarly, { once: true, passive: true });
-  window.addEventListener("scroll", dismissEarly, { once: true, passive: true });
-  window.addEventListener("touchstart", dismissEarly, { once: true, passive: true });
-
-  // Max 800ms timeout fallback so page NEVER blocks
-  setTimeout(() => {
-    if (!loaderHidden) hideLoader();
-  }, 800);
-
-  if (alreadySeen) {
-    hideLoader(true);
-  } else if (loaderFrame) {
-    const padFrame = (f) => String(f).padStart(3, "0");
-    const frameBase = loaderFrame.dataset.frameBase || "Lodingpageframes/ezgif-frame-";
-    const frameCount = Number(loaderFrame.dataset.frameCount || 141);
-    const frameExt = loaderFrame.dataset.frameExt || "jpg";
-    const frameStep = 6;
-    let curr = 1;
-
-    const tickFrame = () => {
-      if (isSequenceCancelled || loaderHidden) return;
-      curr += frameStep;
-      if (curr <= frameCount) {
-        loaderFrame.src = `${frameBase}${padFrame(curr)}.${frameExt}`;
-        requestAnimationFrame(tickFrame);
-      } else {
-        hideLoader();
-      }
-    };
-    requestAnimationFrame(tickFrame);
-  } else {
-    hideLoader();
-  }
-
-  // ------------------------------------------------------------------------
-  // 2. ACTIVE NAV HIGHLIGHTING (THROTTLED)
+  // 1. ACTIVE NAV HIGHLIGHTING (ZERO REFLOW VIA INTERSECTION OBSERVER)
   // ------------------------------------------------------------------------
   const navLinks = document.querySelectorAll(".navbar .nav-link");
-  const sections = document.querySelectorAll("main > section");
-  let scrollTicking = false;
+  const navSections = document.querySelectorAll("main > section, header.landing");
 
-  const highlightNav = () => {
-    const scrollPos = window.scrollY + 180;
-    sections.forEach((sec) => {
-      const top = sec.offsetTop;
-      const height = sec.offsetHeight;
-      const id = sec.getAttribute("id");
-      if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+  if ("IntersectionObserver" in window) {
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            if (id) {
+              navLinks.forEach((link) => {
+                link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+              });
+            }
+          }
         });
+      },
+      {
+        rootMargin: "-25% 0px -65% 0px",
+        threshold: 0
       }
-    });
-  };
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!scrollTicking) {
-        scrollTicking = true;
-        requestAnimationFrame(() => {
-          highlightNav();
-          scrollTicking = false;
-        });
-      }
-    },
-    { passive: true }
-  );
-  highlightNav();
+    );
+    navSections.forEach((sec) => navObserver.observe(sec));
+  }
 
   // ------------------------------------------------------------------------
   // 3. ABOUT SECTION SLIDER & SCROLL REVEAL ANIMATION
@@ -6520,7 +6394,7 @@ const initPortfolio = () => {
       updateProgress();
     }
 
-    window.addEventListener("scroll", checkInitialInView, { passive: true });
+    // Scroll listener removed: IntersectionObserver handles reveals without reflow
   })();
 
   // ------------------------------------------------------------------------
