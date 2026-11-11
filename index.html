@@ -361,6 +361,363 @@ body.loader-locked {
     url("Landingpage/Assests/2.webp") center / cover no-repeat;
 }
 
+/* ==========================================================================
+   CANVA THEME & ANIMATED SUITE (Vibrant Creative Agency Aesthetic)
+   - Ambient Aurora Glow Mesh (GPU Composited)
+   - Interactive Floating Badges & Magnetic Stickers
+   - Canva Sparkle Doodles & Interactive Click Bursts
+   - Iridescent Gradient Text Shimmer
+   ========================================================================== */
+
+/* 1. Aurora Ambient Mesh Orbs */
+.canva-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: 0.38;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+.aurora-orb.orb-1 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #7928ca 0%, rgba(121, 40, 202, 0) 70%);
+  top: 10%;
+  right: 15%;
+  animation: canvaOrbFloat1 18s ease-in-out infinite alternate;
+}
+
+.aurora-orb.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #00dfd8 0%, rgba(0, 223, 216, 0) 70%);
+  bottom: 10%;
+  left: 20%;
+  animation: canvaOrbFloat2 22s ease-in-out infinite alternate;
+}
+
+.aurora-orb.orb-3 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, #ff007a 0%, rgba(255, 0, 122, 0) 70%);
+  top: 45%;
+  right: 35%;
+  animation: canvaOrbFloat3 15s ease-in-out infinite alternate;
+}
+
+@keyframes canvaOrbFloat1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-60px, 40px) scale(1.15); }
+  100% { transform: translate(40px, -50px) scale(0.9); }
+}
+
+@keyframes canvaOrbFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(70px, -50px) scale(1.2); }
+  100% { transform: translate(-50px, 30px) scale(0.95); }
+}
+
+@keyframes canvaOrbFloat3 {
+  0% { transform: translate(0, 0) scale(0.9); }
+  50% { transform: translate(-40px, -60px) scale(1.1); }
+  100% { transform: translate(50px, 40px) scale(1); }
+}
+
+/* 2. Iridescent Canva Gradient Text Shimmer */
+.hero-content h1 span:last-child {
+  background: linear-gradient(115deg, #ffffff 0%, #00f2fe 28%, #7928ca 52%, #ff007a 76%, #ffffff 100%);
+  background-size: 240% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: canvaTextShimmer 7s linear infinite;
+  text-shadow: none;
+  filter: drop-shadow(0 6px 24px rgba(0, 223, 216, 0.35));
+}
+
+@keyframes canvaTextShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 240% center; }
+}
+
+/* 3. Floating Canva Stickers & Badges */
+.canva-stickers-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.canva-sticker {
+  position: absolute;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.canva-sticker:hover {
+  transform: scale(1.1) translateY(-6px) rotate(2deg) !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  z-index: 10;
+}
+
+.canva-sticker:active {
+  cursor: grabbing;
+  transform: scale(0.96) !important;
+}
+
+/* Individual Sticker Styles */
+.sticker-hackathon {
+  top: 18%;
+  right: 12%;
+  background: linear-gradient(135deg, rgba(255, 170, 0, 0.35), rgba(255, 77, 0, 0.25));
+  border: 1.5px solid rgba(255, 185, 45, 0.75);
+  box-shadow: 0 12px 32px rgba(255, 136, 0, 0.3), inset 0 1px 0 rgba(255, 230, 150, 0.5);
+  animation: canvaFloatA 5.5s ease-in-out infinite alternate;
+}
+
+.sticker-founder {
+  top: 36%;
+  right: 6%;
+  background: linear-gradient(135deg, rgba(0, 223, 216, 0.32), rgba(121, 40, 202, 0.35));
+  border: 1.5px solid rgba(0, 223, 216, 0.7);
+  box-shadow: 0 12px 32px rgba(0, 223, 216, 0.3), inset 0 1px 0 rgba(200, 255, 255, 0.5);
+  animation: canvaFloatB 6.2s ease-in-out infinite alternate;
+}
+
+.sticker-cs50 {
+  bottom: 22%;
+  right: 14%;
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.35), rgba(139, 0, 0, 0.25));
+  border: 1.5px solid rgba(255, 80, 100, 0.7);
+  box-shadow: 0 12px 32px rgba(220, 20, 60, 0.3), inset 0 1px 0 rgba(255, 180, 190, 0.5);
+  animation: canvaFloatC 5.8s ease-in-out infinite alternate;
+}
+
+.sticker-gsa {
+  top: 14%;
+  left: 36%;
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.32), rgba(52, 168, 83, 0.28));
+  border: 1.5px solid rgba(66, 133, 244, 0.7);
+  box-shadow: 0 12px 32px rgba(66, 133, 244, 0.3), inset 0 1px 0 rgba(200, 230, 255, 0.5);
+  animation: canvaFloatD 6.8s ease-in-out infinite alternate;
+}
+
+.sticker-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-top: 18px;
+  color: #f1f5f9;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 12px #22c55e;
+  animation: canvaPulseDot 1.8s ease-in-out infinite;
+}
+
+@keyframes canvaPulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+@keyframes canvaFloatA {
+  0% { transform: translate(0, 0) rotate(-2deg); }
+  100% { transform: translate(12px, -18px) rotate(2deg); }
+}
+
+@keyframes canvaFloatB {
+  0% { transform: translate(0, 0) rotate(2deg); }
+  100% { transform: translate(-15px, 20px) rotate(-3deg); }
+}
+
+@keyframes canvaFloatC {
+  0% { transform: translate(0, 0) rotate(-3deg); }
+  100% { transform: translate(14px, -16px) rotate(1deg); }
+}
+
+@keyframes canvaFloatD {
+  0% { transform: translate(0, 0) rotate(1deg); }
+  100% { transform: translate(-10px, 16px) rotate(-2deg); }
+}
+
+/* 4. Canva Sparkle Elements (Twinkling Star Accents) */
+.canva-sparkle {
+  position: absolute;
+  pointer-events: none;
+  animation: canvaSparkleTwinkle 3.2s ease-in-out infinite alternate;
+}
+
+.canva-sparkle svg {
+  width: 100%;
+  height: 100%;
+  fill: #ffd700;
+  filter: drop-shadow(0 0 10px rgba(255, 220, 100, 0.85));
+}
+
+.sparkle-1 {
+  width: 26px;
+  height: 26px;
+  top: 12%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.sparkle-2 {
+  width: 32px;
+  height: 32px;
+  top: 28%;
+  right: 28%;
+  animation-delay: 1.2s;
+}
+
+.sparkle-3 {
+  width: 22px;
+  height: 22px;
+  bottom: 25%;
+  left: 45%;
+  animation-delay: 2.1s;
+}
+
+@keyframes canvaSparkleTwinkle {
+  0% { transform: scale(0.65) rotate(0deg); opacity: 0.35; }
+  50% { transform: scale(1.3) rotate(90deg); opacity: 1; }
+  100% { transform: scale(0.75) rotate(180deg); opacity: 0.45; }
+}
+
+/* 5. Click Particle Burst (Canva Confetti/Sparkle Explosion) */
+.canva-click-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999;
+  border-radius: 50%;
+  will-change: transform, opacity;
+  animation: canvaParticleFade 0.8s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+  user-select: none;
+}
+
+@keyframes canvaParticleFade {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0) rotate(var(--rot)); opacity: 0; }
+}
+
+/* Mobile Responsiveness for Canva Stickers */
+@media (max-width: 900px) {
+  .canva-sticker {
+    font-size: 11.5px;
+    padding: 7px 14px;
+    gap: 6px;
+  }
+  .sticker-gsa {
+    display: none;
+  }
+  .sticker-hackathon {
+    top: 12%;
+    right: 4%;
+  }
+  .sticker-founder {
+    top: 24%;
+    right: 3%;
+  }
+  .sticker-cs50 {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .sticker-hackathon,
+  .sticker-founder,
+  .sticker-cs50,
+  .sticker-gsa {
+    display: none !important;
+  }
+  .canva-mobile-badge-row {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .canva-mobile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #fff;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  }
+  .badge-hacks {
+    background: linear-gradient(135deg, rgba(255, 170, 0, 0.35), rgba(255, 77, 0, 0.25));
+    border-color: rgba(255, 185, 45, 0.7);
+  }
+  .badge-ceo {
+    background: linear-gradient(135deg, rgba(0, 223, 216, 0.3), rgba(121, 40, 202, 0.35));
+    border-color: rgba(0, 223, 216, 0.65);
+  }
+  .badge-cs {
+    background: linear-gradient(135deg, rgba(220, 20, 60, 0.35), rgba(139, 0, 0, 0.25));
+    border-color: rgba(255, 80, 100, 0.65);
+  }
+}
+
+@media (min-width: 561px) {
+  .canva-mobile-badge-row {
+    display: none !important;
+  }
+}
+
+/* Motion Guide: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-orb,
+  .canva-sticker,
+  .canva-sparkle,
+  .hero-content h1 span:last-child {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 .site-section {
   position: relative;
   min-height: 100vh;
@@ -4844,8 +5201,42 @@ html {
     </nav>
 
     <main>
-      <!-- 3. Hero Section -->
+      <!-- 3. Hero Section (Canva Theme Animated Suite) -->
       <section class="landing" id="home">
+        <!-- Canva Ambient Aurora Mesh Orbs -->
+        <div class="canva-aurora" aria-hidden="true">
+          <div class="aurora-orb orb-1"></div>
+          <div class="aurora-orb orb-2"></div>
+          <div class="aurora-orb orb-3"></div>
+        </div>
+
+        <!-- Canva Interactive Floating Stickers & Magnetic Badges -->
+        <div class="canva-stickers-wrap" aria-hidden="true">
+          <div class="canva-sticker sticker-hackathon" title="11x Hackathon Winner across India &amp; Global contests">
+            <span>🏆</span> 11x Hackathon Winner
+          </div>
+          <div class="canva-sticker sticker-founder" title="Founder &amp; CEO of DEVENGERS &amp; WebHurry">
+            <span>🚀</span> Founder &amp; CEO @Devengers
+          </div>
+          <div class="canva-sticker sticker-cs50" title="Harvard CS50x 100% Certified">
+            <span>🎓</span> Harvard CS50x (100%)
+          </div>
+          <div class="canva-sticker sticker-gsa" title="Google Student Ambassador">
+            <span>🤖</span> Google Student Ambassador
+          </div>
+
+          <!-- Canva Sparkle Twinkles -->
+          <div class="canva-sparkle sparkle-1">
+            <svg viewBox="0 0 24 24"><path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/></svg>
+          </div>
+          <div class="canva-sparkle sparkle-2">
+            <svg viewBox="0 0 24 24"><path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/></svg>
+          </div>
+          <div class="canva-sparkle sparkle-3">
+            <svg viewBox="0 0 24 24"><path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/></svg>
+          </div>
+        </div>
+
         <section class="hero-content" aria-label="Kishan Nishad intro">
           <h1><span>Hi, I’m</span><span>Kishan Nishad</span></h1>
           <p class="animated-detail">
@@ -4854,6 +5245,17 @@ html {
             <span>Full-Stack &amp; AI Engineer</span>
           </p>
           <p class="statement">Turning ideas into scalable AI products, full-stack architectures, and empowering 10,000+ developers.</p>
+
+          <div class="sticker-status">
+            <span class="live-dot"></span> Available for Keynotes, AI Collaborations &amp; Products
+          </div>
+
+          <!-- Mobile Responsive Canva Badges -->
+          <div class="canva-mobile-badge-row">
+            <div class="canva-mobile-badge badge-hacks"><span>🏆</span> 11x Hackathon Winner</div>
+            <div class="canva-mobile-badge badge-ceo"><span>🚀</span> Founder @Devengers</div>
+            <div class="canva-mobile-badge badge-cs"><span>🎓</span> Harvard CS50x</div>
+          </div>
         </section>
       </section>
 
@@ -6959,6 +7361,52 @@ const initPortfolio = () => {
     } else {
       setTimeout(scheduleNext, 200);
     }
+  })();
+
+  // ------------------------------------------------------------------------
+  // 11. CANVA INTERACTIVE CLICK SPARKLE BURST (DELIGHTFUL MICRO-INTERACTIONS)
+  // ------------------------------------------------------------------------
+  (() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    const colors = ["#00dfd8", "#7928ca", "#ff007a", "#ffaa40", "#ffffff", "#00f2fe", "#f59e0b"];
+    const shapes = ["★", "✦", "▲", "●", "◆", "✨"];
+
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (target.closest("button") || target.closest("a") || target.closest("input") || target.closest("textarea")) return;
+
+      const x = e.clientX;
+      const y = e.clientY;
+      const count = 7;
+
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement("span");
+        particle.className = "canva-click-particle";
+        const angle = (i / count) * 2 * Math.PI + (Math.random() - 0.5) * 0.45;
+        const velocity = 35 + Math.random() * 50;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+        const rot = (Math.random() * 360 - 180) + "deg";
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+        const size = 11 + Math.random() * 8;
+
+        particle.textContent = shape;
+        particle.style.left = x + "px";
+        particle.style.top = y + "px";
+        particle.style.color = color;
+        particle.style.fontSize = size + "px";
+        particle.style.textShadow = "0 0 10px " + color;
+        particle.style.setProperty("--tx", tx + "px");
+        particle.style.setProperty("--ty", ty + "px");
+        particle.style.setProperty("--rot", rot);
+
+        document.body.appendChild(particle);
+        setTimeout(() => particle.remove(), 800);
+      }
+    }, { passive: true });
   })();
 
 };
