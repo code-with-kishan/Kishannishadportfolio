@@ -1081,7 +1081,7 @@
   height: 90%;
   transform: translateX(-50%);
   content: '';
-  background-image: url('../certifications/images/bg.png');
+  background-image: url('../certifications/images/bg.webp');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: top center;
@@ -1188,7 +1188,7 @@
 }
 
 #certifications .cert-content .cert-model {
-  background-image: url('../certifications/images/model.png');
+  background-image: url('../certifications/images/model.webp');
   width: 100%;
   height: 75vh;
   position: absolute;
@@ -1257,7 +1257,7 @@
     repeating-linear-gradient(to right, transparent 0 150px, #0001 150px 151px),
     repeating-linear-gradient(to bottom, transparent 0 150px, #0001 150px 151px),
     linear-gradient(to right, rgba(205, 205, 205, 0.8), rgba(205, 205, 205, 0.8)),
-    url('../Community/images/bg.jpg');
+    url('../Community/images/bg.webp');
   font-family: 'Poppins', sans-serif;
   color: #1E1E1E;
   overflow: hidden;
@@ -1368,8 +1368,8 @@
   aspect-ratio: 2 / 4;
   --left: 0px;
   background-image:
-    url('../Community/images/bg.png'),
-    url('../Community/images/mockup.png');
+    url('../Community/images/bg.webp'),
+    url('../Community/images/mockup.webp');
   background-position:
     var(--left) 0,
     0 0;
@@ -1381,10 +1381,10 @@
     no-repeat;
   background-blend-mode: multiply;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  -webkit-mask-image: url('../Community/images/mockup.png');
+  -webkit-mask-image: url('../Community/images/mockup.webp');
   -webkit-mask-size: auto 100%;
   -webkit-mask-repeat: no-repeat;
-  mask-image: url('../Community/images/mockup.png');
+  mask-image: url('../Community/images/mockup.webp');
   mask-size: auto 100%;
   mask-repeat: no-repeat;
   filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.4));
@@ -1662,7 +1662,7 @@
   height: 70%;
   left: 50%;
   transform: translateX(-50%);
-  background-image: url('../Blogs/img/model.png');
+  background-image: url('../Blogs/img/model.webp');
   background-size: cover;
   background-position: top;
   pointer-events: none;
