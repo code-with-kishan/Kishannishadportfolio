@@ -61,6 +61,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png" />
     <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="preload" as="image" href="Lodingpageframes/ezgif-frame-001.webp" type="image/webp" fetchpriority="high" />
     <link rel="preload" as="image" href="Landingpage/Assests/2.webp" type="image/webp" fetchpriority="high" />
     <link rel="preload" as="image" href="Landingpage/Assests/kishan-portrait.webp" type="image/webp" fetchpriority="high" />
 
@@ -233,7 +234,108 @@ body {
   color: #ffffff;
 }
 
-/* Frame loader styles removed for instant page rendering */
+/* ==========================================================================
+   CINEMATIC WELCOME FRAME LOADER (OPTIMIZED WEBP + HARDWARE CANVAS)
+   ========================================================================== */
+body.loader-locked {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, visibility;
+}
+
+.loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-canvas {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  background: #000000;
+}
+
+@media (max-aspect-ratio: 4/3) {
+  .loader-canvas {
+    object-fit: contain;
+  }
+}
+
+.loader-skip-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10000000;
+  padding: 8px 18px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(20, 20, 25, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.loader-skip-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.loader-skip-btn:active {
+  transform: translateY(1px);
+}
+
+.loader-skip-btn svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+.loader-progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 10;
+}
+
+.loader-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff0055, #7928ca, #00dfd8);
+  box-shadow: 0 0 12px rgba(0, 223, 216, 0.6);
+  transition: width 0.05s linear;
+}
 
 .landing {
   position: relative;
@@ -4562,7 +4664,154 @@ html {
 </style>
     </head>
   <body>
-        <!-- Instant Startup: Loader bypassed for max speed -->
+    <!-- 1. Cinematic Welcome Intro Loader (Hardware Canvas + WebP Stream) -->
+    <div class="loader" id="loader" role="dialog" aria-modal="true" aria-label="Welcome animation">
+      <canvas id="loaderCanvas" class="loader-canvas" width="1280" height="720"></canvas>
+      <button class="loader-skip-btn" id="loaderSkipBtn" type="button" aria-label="Skip Intro">
+        <span>Skip</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l10 8-10 8V4zm11 0h3v16h-3V4z"/></svg>
+      </button>
+      <div class="loader-progress-track">
+        <div class="loader-progress-bar" id="loaderProgressBar"></div>
+      </div>
+    </div>
+    <script>
+      (function() {
+        const loader = document.getElementById("loader");
+        const canvas = document.getElementById("loaderCanvas");
+        const skipBtn = document.getElementById("loaderSkipBtn");
+        const progressBar = document.getElementById("loaderProgressBar");
+        if (!loader || !canvas) return;
+
+        document.body.classList.add("loader-locked");
+
+        const ctx = canvas.getContext("2d", { alpha: false });
+        const TOTAL_FRAMES = 141;
+        const TARGET_FPS = 35; // Smooth ~4s cinematic welcome
+        const FRAME_DURATION = 1000 / TARGET_FPS;
+        const frameImages = new Array(TOTAL_FRAMES + 1);
+        let currentFrame = 1;
+        let isDismissed = false;
+        let animId = null;
+        let lastRenderTime = 0;
+        let framesLoadedCount = 0;
+        let hasStartedPlayback = false;
+
+        const pad = (n) => String(n).padStart(3, "0");
+        const getFrameSrc = (n) => "Lodingpageframes/ezgif-frame-" + pad(n) + ".webp";
+
+        const preloadFrame = (index) => {
+          if (frameImages[index]) return frameImages[index];
+          const img = new Image();
+          img.decoding = "async";
+          img.src = getFrameSrc(index);
+          img.onload = () => {
+            framesLoadedCount++;
+            if (index === 1 && !hasStartedPlayback && ctx) {
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            }
+            // Once initial 5 frames are buffered, start playback
+            if (framesLoadedCount >= 5 && !hasStartedPlayback && !isDismissed) {
+              startPlayback();
+            }
+          };
+          frameImages[index] = img;
+          return img;
+        };
+
+        // Preload first batch immediately
+        const INITIAL_BATCH = 15;
+        for (let i = 1; i <= Math.min(INITIAL_BATCH, TOTAL_FRAMES); i++) {
+          preloadFrame(i);
+        }
+
+        // Stream remaining frames progressively
+        const preloadNextBatches = () => {
+          let next = INITIAL_BATCH + 1;
+          const interval = setInterval(() => {
+            if (isDismissed || next > TOTAL_FRAMES) {
+              clearInterval(interval);
+              return;
+            }
+            const chunk = Math.min(next + 14, TOTAL_FRAMES);
+            for (let i = next; i <= chunk; i++) {
+              preloadFrame(i);
+            }
+            next = chunk + 1;
+          }, 45);
+        };
+        preloadNextBatches();
+
+        const dismissLoader = () => {
+          if (isDismissed) return;
+          isDismissed = true;
+          if (animId) cancelAnimationFrame(animId);
+          document.body.classList.remove("loader-locked");
+          loader.classList.add("is-hidden");
+          setTimeout(() => {
+            loader.style.display = "none";
+            frameImages.length = 0;
+          }, 650);
+        };
+
+        const renderFrame = (idx) => {
+          const img = frameImages[idx];
+          if (img && img.complete && img.naturalWidth > 0 && ctx) {
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          }
+          if (progressBar) {
+            progressBar.style.width = ((idx / TOTAL_FRAMES) * 100).toFixed(1) + "%";
+          }
+        };
+
+        const startPlayback = () => {
+          if (hasStartedPlayback) return;
+          hasStartedPlayback = true;
+          lastRenderTime = performance.now();
+
+          const loop = (timestamp) => {
+            if (isDismissed) return;
+            const delta = timestamp - lastRenderTime;
+
+            if (delta >= FRAME_DURATION) {
+              currentFrame++;
+              if (currentFrame > TOTAL_FRAMES) {
+                dismissLoader();
+                return;
+              }
+              renderFrame(currentFrame);
+              lastRenderTime = timestamp - (delta % FRAME_DURATION);
+            }
+
+            animId = requestAnimationFrame(loop);
+          };
+
+          animId = requestAnimationFrame(loop);
+        };
+
+        // Fallback: start playback after 500ms even on slower networks
+        setTimeout(() => {
+          if (!hasStartedPlayback && !isDismissed) {
+            startPlayback();
+          }
+        }, 500);
+
+        // Max timeout safety guard (7.5 seconds)
+        setTimeout(() => {
+          if (!isDismissed) {
+            dismissLoader();
+          }
+        }, 7500);
+
+        if (skipBtn) {
+          skipBtn.addEventListener("click", dismissLoader, { once: true });
+        }
+
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") dismissLoader();
+        }, { once: true });
+      })();
+    </script>
 
     <!-- 2. Sticky Glassmorphism Navigation -->
     <nav class="navbar" aria-label="Primary navigation">
