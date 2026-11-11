@@ -65,6 +65,21 @@
     <link rel="preload" as="image" href="Landingpage/Assests/2.webp" type="image/webp" fetchpriority="high" />
     <link rel="preload" as="image" href="Landingpage/Assests/kishan-portrait.webp" type="image/webp" fetchpriority="high" />
 
+    <!-- Idle Prefetch for Instant Off-Screen Image Loads -->
+    <link rel="prefetch" as="image" href="certifications/images/dragon_1.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/dragon_2.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/dragon_3.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/dragon_4.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/dragon_5.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/dragon_6.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/dragon_7.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/dragon_8.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/dragon_9.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/dragon_10.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/model.webp" />
+    <link rel="prefetch" as="image" href="certifications/images/bg.webp" />
+    <link rel="prefetch" as="image" href="About/image/img1.webp" />
+
     <!-- Google & CDN Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -4847,7 +4862,7 @@ html {
         <div class="about-slider">
           <div class="about-list">
             <div class="about-item active">
-              <img src="About/image/img1.webp" alt="Kishan Nishad profile" loading="lazy" decoding="async">
+              <img src="About/image/img1.webp" alt="Kishan Nishad profile" loading="eager" fetchpriority="high" decoding="async">
               <div class="about-content">
                 <p>profile</p>
                 <h2>About Me</h2>
@@ -4909,7 +4924,7 @@ html {
 
           <div class="about-thumbnail">
             <div class="about-thumb-item active">
-              <img src="About/image/img1.webp" alt="About Me thumbnail" loading="lazy" decoding="async">
+              <img src="About/image/img1.webp" alt="About Me thumbnail" loading="eager" decoding="async">
               <div class="about-thumb-content">About Me</div>
             </div>
             <div class="about-thumb-item">
@@ -5248,22 +5263,22 @@ html {
 
           <div class="proj-images">
             <div class="proj-img-item" style="--i: 1">
-              <img src="Projects/1.webp" alt="SUVIDHA Project" loading="lazy" decoding="async">
+              <img src="Projects/1.webp" alt="SUVIDHA Project" loading="eager" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 2">
-              <img src="Projects/2.webp" alt="AI Money Mentor Project" loading="lazy" decoding="async">
+              <img src="Projects/2.webp" alt="AI Money Mentor Project" loading="eager" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 3">
-              <img src="Projects/3.webp" alt="AI StudyBuddy Project" loading="lazy" decoding="async">
+              <img src="Projects/3.webp" alt="AI StudyBuddy Project" loading="eager" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 4">
-              <img src="Projects/4.webp" alt="LunarTrace Project" loading="lazy" decoding="async">
+              <img src="Projects/4.webp" alt="LunarTrace Project" loading="eager" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 5">
-              <img src="Projects/5.webp" alt="FraudGenome Project" loading="lazy" decoding="async">
+              <img src="Projects/5.webp" alt="FraudGenome Project" loading="eager" decoding="async">
             </div>
             <div class="proj-img-item" style="--i: 6">
-              <img src="Projects/6.webp" alt="PromptShield Project" loading="lazy" decoding="async">
+              <img src="Projects/6.webp" alt="PromptShield Project" loading="eager" decoding="async">
             </div>
           </div>
 
@@ -5353,7 +5368,7 @@ html {
           <div class="exp-list">
             <!-- 0. Devengers -->
             <div class="exp-item" id="exp_item_0">
-              <img src="Experience/img2.webp" alt="DEVENGERS Tech Community" loading="lazy" decoding="async">
+              <img src="Experience/img2.webp" alt="DEVENGERS Tech Community" loading="eager" decoding="async">
               <div class="exp-content">
                 <h2>Founder &amp; CEO @Devengers</h2>
                 <div class="exp-content1">
@@ -5654,34 +5669,34 @@ html {
         <div class="cert-banner">
           <div class="cert-slider" style="--quantity: 10">
             <div class="cert-item" style="--position: 1">
-              <img src="certifications/images/dragon_1.webp" alt="Certificate 1" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_1.webp" alt="Certificate 1" loading="eager" decoding="async">
             </div>
             <div class="cert-item" style="--position: 2">
-              <img src="certifications/images/dragon_2.webp" alt="Certificate 2" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_2.webp" alt="Certificate 2" loading="eager" decoding="async">
             </div>
             <div class="cert-item" style="--position: 3">
-              <img src="certifications/images/dragon_3.webp" alt="Certificate 3" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_3.webp" alt="Certificate 3" loading="eager" decoding="async">
             </div>
             <div class="cert-item" style="--position: 4">
-              <img src="certifications/images/dragon_4.webp" alt="Certificate 4" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_4.webp" alt="Certificate 4" loading="eager" decoding="async">
             </div>
             <div class="cert-item" style="--position: 5">
-              <img src="certifications/images/dragon_5.webp" alt="Certificate 5" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_5.webp" alt="Certificate 5" loading="eager" decoding="async">
             </div>
             <div class="cert-item" style="--position: 6">
-              <img src="certifications/images/dragon_6.webp" alt="Certificate 6" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_6.webp" alt="Certificate 6" loading="eager" decoding="async">
             </div>
             <div class="cert-item" style="--position: 7">
-              <img src="certifications/images/dragon_7.webp" alt="Certificate 7" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_7.webp" alt="Certificate 7" loading="eager" decoding="async">
             </div>
             <div class="cert-item" style="--position: 8">
-              <img src="certifications/images/dragon_8.webp" alt="Certificate 8" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_8.webp" alt="Certificate 8" loading="eager" decoding="async">
             </div>
             <div class="cert-item" style="--position: 9">
-              <img src="certifications/images/dragon_9.webp" alt="Certificate 9" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_9.webp" alt="Certificate 9" loading="eager" decoding="async">
             </div>
             <div class="cert-item" style="--position: 10">
-              <img src="certifications/images/dragon_10.webp" alt="Certificate 10" loading="lazy" decoding="async">
+              <img src="certifications/images/dragon_10.webp" alt="Certificate 10" loading="eager" decoding="async">
             </div>
           </div>
 
@@ -5716,7 +5731,7 @@ html {
                 <p>Community</p>
                 <p>10K+ Members</p>
               </div>
-              <img src="Community/images/code.png" alt="DEVENGERS code badge" class="comm-code" loading="lazy" decoding="async">
+              <img src="Community/images/code.webp" alt="DEVENGERS code badge" class="comm-code" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -6867,6 +6882,83 @@ const initPortfolio = () => {
     };
 
     bindChips();
+  })();
+
+  // ------------------------------------------------------------------------
+  // 10. BACKGROUND IDLE ASSET CACHE WARMER (ZERO-LATENCY INSTANT RENDERS)
+  // ------------------------------------------------------------------------
+  (() => {
+    const criticalAssets = [
+      "certifications/images/dragon_1.webp",
+      "certifications/images/dragon_2.webp",
+      "certifications/images/dragon_3.webp",
+      "certifications/images/dragon_4.webp",
+      "certifications/images/dragon_5.webp",
+      "certifications/images/dragon_6.webp",
+      "certifications/images/dragon_7.webp",
+      "certifications/images/dragon_8.webp",
+      "certifications/images/dragon_9.webp",
+      "certifications/images/dragon_10.webp",
+      "certifications/images/model.webp",
+      "certifications/images/bg.webp",
+      "About/image/img1.webp",
+      "About/image/img2.webp",
+      "About/image/img3.webp",
+      "About/image/img4.webp",
+      "About/image/img5.webp",
+      "Projects/1.webp",
+      "Projects/2.webp",
+      "Projects/3.webp",
+      "Projects/4.webp",
+      "Projects/5.webp",
+      "Projects/6.webp",
+      "Acheivements/images/img1.webp",
+      "Acheivements/images/img2.webp",
+      "Acheivements/images/img3.webp",
+      "Acheivements/images/img4.webp",
+      "Acheivements/images/img5.webp",
+      "Acheivements/images/img6.webp",
+      "Experience/img1.webp",
+      "Experience/img2.webp",
+      "Experience/img3.webp",
+      "Blogs/img/1.webp",
+      "Blogs/img/2.webp",
+      "Blogs/img/3.webp",
+      "Blogs/img/model.webp",
+      "Community/images/2.webp",
+      "Community/images/bg2.webp",
+      "Community/images/mockup.webp",
+      "Community/images/rock1.webp",
+      "Community/images/rock2.webp",
+      "Community/images/rock3.webp"
+    ];
+
+    let cursor = 0;
+    const scheduleNext = () => {
+      if (cursor >= criticalAssets.length) return;
+      const batch = criticalAssets.slice(cursor, cursor + 4);
+      cursor += 4;
+
+      batch.forEach((url) => {
+        const img = new Image();
+        img.decoding = "async";
+        img.src = url;
+      });
+
+      if (cursor < criticalAssets.length) {
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(scheduleNext, { timeout: 150 });
+        } else {
+          setTimeout(scheduleNext, 35);
+        }
+      }
+    };
+
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(scheduleNext, { timeout: 500 });
+    } else {
+      setTimeout(scheduleNext, 200);
+    }
   })();
 
 };
